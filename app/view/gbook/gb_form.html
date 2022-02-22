@@ -1,0 +1,41 @@
+<div class="gbook-form mtn" id="gookform">
+  <h1>在线留言<span>{:C('gbook_about')}</span></h1>
+  <form class="form-horizontal submit-ajax" method="post" action="{:U('gbook/add')}">
+  <input type="hidden" name="token" value="{:get_token()}"/>
+  <input type="hidden" name="bid" value="{$bid}"/> 
+  	 {if !session('user_id')} 	
+	 <div class="form-group">
+	    <label for="name" class="col-sm-2 control-label">昵称</label>
+	    <div class="col-sm-10">
+	      <input type="text" class="form-control" name="name" id="name" placeholder="请输入留言昵称"/>
+	    </div>
+	  </div>	 
+	 <div class="form-group">
+	    <label for="qq" class="col-sm-2 control-label">QQ</label>
+	    <div class="col-sm-10">
+	      <input type="text" class="form-control" name="qq" id="qq" placeholder="请输入QQ号码"/>
+	    </div>
+	  </div>
+	  {/if}	  
+	  <div class="form-group">
+	    <label for="pcontent" class="col-sm-2 control-label">留言</label>
+	    <div class="col-sm-10">
+	    	<textarea class="form-control" name="pcontent" id="pcontent" rows="3" placeholder="请输入留言内容"></textarea>
+	    </div>
+	  </div>
+	 <div class="form-group">
+	    <label for="captcha" class="col-sm-2 control-label">验证</label>
+	    <div class="col-sm-5">		   
+		    <input type="text" name="captcha" id="captcha" class="form-control" placeholder="请输入验证码"/>	    	
+	    </div>
+	    <div class="col-sm-5" style="margin-top:3px;">
+	    	<img src="__URL__/api/captcha" align="middle" style="cursor:pointer;" onclick="this.src='__URL__/api/captcha?'+Math.random();"/>	    	
+	    </div>	    
+	  </div>	  
+	  <div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+	      <button type="submit" class="btn btn-primary">提交留言</button>
+	    </div>
+	  </div>   
+  </form>
+</div>

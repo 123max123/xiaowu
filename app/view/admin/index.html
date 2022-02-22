@@ -1,0 +1,19 @@
+{include 'public/header.html'}
+<div class="container mtn">
+	{include 'admin/admin_nav.html'}
+	<h4 class="blog-post-title1 mtn">管理中心 | <a href="javascript:actionLink('{:U('admin/cleardb')}','清空数据');">清空数据</a></h4>
+	<table class="table table-striped">	
+	  <tbody>
+	  {foreach $info as $k=>$v}
+	    <tr>
+	      <td>{$k}</td>
+	      <td>{$v}</td>			     
+	    </tr>
+	  {/foreach}	
+	  </tbody>
+	</table>	
+	
+</div>
+{include 'public/footer.html'}
+</body>
+</html>

@@ -1,0 +1,61 @@
+{include 'public/header.html'}
+<div class="container mtn">
+	{include 'admin/admin_nav.html'}	
+	<h4 class="blog-post-title1 mtn">修改页面</h4>				
+	<form class="form-horizontal submit-ajax" role="form" action="{:U('danye/edit')}" method="post" onsubmit="javascript:editorgetcontent();">
+	  <input type="hidden" name="token" value="{:get_token()}" />
+	  <input type="hidden" name="id" value="{$vo.id}" />	
+	  <div class="form-group">
+	    <label class="col-sm-2 control-label">名称</label>
+	    <div class="col-sm-10">
+	       <input type="text" name="pname" class="form-control" placeholder="请输入页面名称" value="{$vo.pname}" />
+	    </div>
+	  </div>		  	
+	  <div class="form-group">
+	    <label class="col-sm-2 control-label">标识</label>
+	    <div class="col-sm-10">
+	       <input type="text" name="pageid" class="form-control" placeholder="请输入页面标识" value="{$vo.pageid}" />
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label class="col-sm-2 control-label">标题</label>
+	    <div class="col-sm-10">
+	      <input type="text" name="ptitle" class="form-control" placeholder="请输入页面标题" value="{$vo.ptitle}" />
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label class="col-sm-2 control-label">内容</label>
+	    <div class="col-sm-10">
+	      <textarea id="editor" name="content" style="display: none;">{$vo.content}</textarea>
+	    </div>
+	  </div>	
+		  
+	  <div class="form-group">
+	    <label class="col-sm-2 control-label">&nbsp;</label>
+	    <div class="col-sm-10">
+	      	<input type="submit" value="修改" class="btn btn-primary" />	
+	    </div>
+	  </div>
+	</form>
+
+</div> 		
+{include 'public/footer.html'}	
+<script src="__PUBLIC__/js/hdeditor/HandyEditor.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+var he = HE.getEditor('editor',{
+	  autoHeight : true,
+	  uploadPhoto : true,
+	  uploadPhotoHandler : '__URL__/api/editorupload',
+	  uploadPhotoSize : 1048576, //1M 
+	  uploadPhotoType : 'gif,png,jpg,jpeg',
+	  uploadPhotoSizeError : '不能上传大于1MB的图片',
+	  uploadPhotoTypeError : '只能上传gif,png,jpg,jpeg格式的图片',
+	  skin : 'myeditor',
+	  item : ['html','|','bold','underline','paragraph','color','backColor','|','link','unlink','|','textBlock','code','|','image','expression','|','orderedList','unorderedList','|','undo','redo','selectAll','removeFormat','trash']
+	});
+function editorgetcontent(){	
+	$('#editor').val(he.getHtml());
+}
+</script>
+</body>
+</html>

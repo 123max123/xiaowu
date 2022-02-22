@@ -1,0 +1,15 @@
+<?php
+return array (
+  'contents' => 
+  array (
+    'id' => '1',
+    'pageid' => 'about',
+    'pname' => '关于',
+    'ptitle' => '关于',
+    'content' => '关于网站',
+    'thumb' => '',
+    'uptime' => '1645439297',
+  ),
+  'expire' => 0,
+  'mtime' => 1645439729,
+);

@@ -1,0 +1,43 @@
+{include 'public/header.html'}
+<div class="container mtn">	
+	<div class="row">
+		<div class="col-xs-12">
+			<h4 class="blog-post-meta1">用户登录<span class="pull-right"><a href="__URL__/book/{:session('gbook_bid')}">返回</a></span></h4>					
+			<div class="blog-post-content">		
+				<form class="form-horizontal submit-ajax" role="form" action="__URL__/login/login" method="post">
+				  <input type="hidden" name="token" value="{:get_token()}" />		
+				  <div class="form-group">
+				    <label class="col-sm-2 control-label">用户名</label>
+				    <div class="col-sm-10">
+				      <input type="text" name="username" class="form-control" style="width:auto;" placeholder="请输入用户名" value="{$from}" />
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-2 control-label">密码</label>
+				    <div class="col-sm-10">
+				      <input type="password" name="userpwd" class="form-control" style="width:auto;" placeholder="请输入密码" value="" />
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-2 control-label">验证码</label>
+				    <div class="col-sm-10">
+				      <input name="captcha" type="text" class="form-control" style="width:auto;display: inline-block;" placeholder="请输入验证码" />
+				      <img src="__URL__/api/captcha" style="height:30px;cursor:pointer;" align="top" onclick="this.src='__URL__/api/captcha?'+Math.random();" />								
+				    </div>
+				  </div>				  		  
+				  <div class="form-group">
+				    <label class="col-sm-2 control-label">&nbsp;</label>
+				    <div class="col-sm-10">
+				      	<input type="submit" value="登录" class="btn btn-primary" />		
+				      	<a href="{:U('login/reg')}">注册</a>	      	
+				    </div>
+				  </div>
+				</form>	
+			
+			</div>
+		</div>    
+	</div><!--/row--> 
+</div> 		
+{include 'public/footer.html'}	
+</body>
+</html>

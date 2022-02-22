@@ -1,0 +1,45 @@
+{include 'public/header.html'}
+<div class="container mtn">
+	{include 'admin/admin_nav.html'}	
+	<h4 class="blog-post-title1 mtn">单页管理 | <a href="{:U('danye/add')}">添加页面</a></h4>
+
+				
+
+			<button type="button" class="btn btn-danger" onclick="javascript:actionAll('删除','__URL__/danye/del_ids');">删除</button>					
+			
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th width="50"><input type="checkbox" onclick="selectAll(this.checked)" /></th>
+							<th>ID</th>
+							<th>页面名称</th>	
+							<th>页面标识</th>																	
+							<th>标题</th>
+							<th>更新时间</th> 
+					        <th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					{foreach $list as $vo}				
+						<tr>
+							<td><input type="checkbox" name="ids" value="{$vo.id}" /> </td>
+							<td>{$vo.id}</td>
+							<td><a href="{:U('danye/edit',['id'=>$vo['id']])}">{$vo.pname}</a></td>
+							<td>{$vo.pageid}</td> 																		
+					        <td>{$vo.ptitle}</td>                         	
+					        <td>{:date('Y-m-d H:i',$vo['uptime'])}</td>  
+	                          <td>
+								<a href="{:U('danye/edit',['id'=>$vo['id']])}" class="btn btn-xs btn-primary">编辑</a>
+								<a href="javascript:actionLink('{:U('danye/del_id',['id'=>$vo['id']])}','删除',2);" class="btn btn-xs btn-danger">删除</a>
+	                          </td>
+						</tr>
+					{/foreach}
+					</tbody>
+				</table>
+				{$phtml}
+			
+
+</div> 		
+{include 'public/footer.html'}	
+</body>
+</html>

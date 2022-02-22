@@ -1,0 +1,64 @@
+<?php
+return array (
+  'contents' => 
+  array (
+    'app' => 
+    array (
+      'shtml_open' => 0,
+      'shtml_time' => 10000,
+    ),
+    'database' => 
+    array (
+      'db_host' => 'localhost',
+      'db_user' => 'liuyan_com',
+      'db_pwd' => 'liuyan_com',
+      'db_name' => 'liuyan_com',
+      'table_pre' => 'ly_',
+      'db_type' => 'mysqli',
+      'db_port' => '3306',
+      'db_charset' => 'utf8',
+    ),
+    'filter' => 
+    array (
+      'id' => 'intval',
+      'bid' => 'intval',
+    ),
+    'route' => 
+    array (
+      '/$' => 
+      array (
+        0 => 'index/index',
+        1 => '*',
+      ),
+      '/user/:uid$' => 
+      array (
+        0 => 'profile/info',
+        1 => '*',
+      ),
+      '/book/:bid' => 
+      array (
+        0 => 'gbook/index',
+        1 => '*',
+      ),
+      '/page/:pn$' => 
+      array (
+        0 => 'single/page',
+        1 => '*',
+      ),
+    ),
+    'site' => 
+    array (
+      'theme' => 'default',
+      'site_title' => '留言板',
+      'site_h1' => '一鱼留言评论',
+      'site_kw' => '留言板',
+      'site_desc' => '留言板',
+      'site_about' => '留言板',
+      'site_h2' => '留言板',
+      'site_logo' => '留言板',
+      'gbook_about' => '文明上网，理性发言！填写QQ将自动获取QQ头像！',
+    ),
+  ),
+  'expire' => 0,
+  'mtime' => 1645439626,
+);

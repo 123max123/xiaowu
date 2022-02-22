@@ -1,0 +1,72 @@
+{include 'public/header.html'}
+<div class="container mtn">
+	{include 'admin/admin_nav.html'}	
+	<h4 class="blog-post-title1 mtn">修改用户</h4>				
+	<form class="form-horizontal submit-ajax" role="form" action="{:U('member/edit')}" method="post">
+	  <input type="hidden" name="token" value="{:get_token()}" />
+	  <input type="hidden" name="id" value="{$vo.id}" />
+	  <div class="form-group">
+	    <label class="col-sm-2 control-label">用户名</label>
+	    <div class="col-sm-10">
+	      <p class="form-control-static">{$vo.username}</p>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label class="col-sm-2 control-label">级别</label>
+	    <div class="col-sm-10"> 			    
+	    	<select name="level" class="form-control" style="width:auto;">
+	    	{foreach $ulevel as $k=>$lv}	
+	    		<option value="{$k}" {if $vo['level']==$k} selected="selected"{/if}>{$lv}</option>
+	    	{/foreach}
+			</select>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label class="col-sm-2 control-label">*昵称</label>
+	    <div class="col-sm-10">
+	      <input type="text" name="nickname" class="form-control" style="width:auto;" placeholder="请输入昵称" value="{$vo.nickname}" />
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label class="col-sm-2 control-label">简介</label>
+	    <div class="col-sm-10">
+	      <input type="text" name="about" class="form-control" style="width:auto;" placeholder="请输入简介" value="{$vo.about}" />
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label class="col-sm-2 control-label">QQ</label>
+	    <div class="col-sm-10">
+	      <input type="text" name="qq" class="form-control" style="width:auto;" placeholder="请输入QQ" value="{$vo.qq}" />
+	    </div>
+	  </div>	
+	  <div class="form-group">
+	    <label class="col-sm-2 control-label">邮箱</label>
+	    <div class="col-sm-10">
+	      <input type="text" name="email" class="form-control" style="width:auto;" placeholder="请输入邮箱" value="{$vo.email}" />
+	    </div>
+	  </div>			  			  		  			  
+	  <div class="form-group">
+	    <label class="col-sm-2 control-label">新密码</label>
+	    <div class="col-sm-10">
+	      <input type="password" name="userpwd" class="form-control" style="width:auto;" placeholder="不修改请留空" value="" />
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label class="col-sm-2 control-label">确认密码</label>
+	    <div class="col-sm-10">
+	      <input type="password" name="repass" class="form-control" style="width:auto;" placeholder="不修改请留空" value="" />
+	    </div>
+	  </div> 
+  		  
+	  <div class="form-group">
+	    <label class="col-sm-2 control-label">&nbsp;</label>
+	    <div class="col-sm-10">
+	      	<input type="submit" value="修改" class="btn btn-primary" />	
+	    </div>
+	  </div>
+	</form>	
+
+</div> 		
+{include 'public/footer.html'}	
+</body>
+</html>

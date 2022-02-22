@@ -1,0 +1,67 @@
+{include 'public/header.html'}
+<style>
+.form-group {margin:0;}
+</style>
+<div class="container mtn">
+	<div class="row">
+		<div class="col-xs-12">
+			<h4 class="blog-post-meta1">我的信息<span class="pull-right"><a href="javascript:history.back(-1);">返回</a></span></h4>	
+	
+			<div class="blog-post-content">	
+	
+				<div class="row">
+					<div class="col-md-3">
+						<div class="myinfo" style="text-align:center;margin-top:5px;">		
+							{if empty($vo['qq'])}
+								<img src="__PUBLIC__/img/head.png" width="80" height="80" class="img-circle"/>
+							{else}
+								<img src="http://q1.qlogo.cn/g?b=qq&nk={$vo.qq}&s=100&t={:time()}" width="80" height="80" class="img-circle"/>
+							{/if}			
+							<p class="mtm"><b>{$vo.nickname}</b></p>
+						</div>
+					</div>
+					
+					<div class="col-md-9">
+						<div class="form-horizontal">
+					  	  <div class="form-group">
+						    <label class="col-sm-2 control-label">用户</label>
+						    <div class="col-sm-10">
+						      <p class="form-control-static">{$vo.username}</p>
+						    </div>
+						  </div>
+				  
+					  	  <div class="form-group">
+						    <label class="col-sm-2 control-label">简介</label>
+						    <div class="col-sm-10">
+						      <p class="form-control-static">{$vo.about|def='暂无'}</p>
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-sm-2 control-label">QQ</label>
+						    <div class="col-sm-10">
+						      <p class="form-control-static">{$vo.qq|def='未设置'}</p>
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-sm-2 control-label">邮箱</label>
+						    <div class="col-sm-10">
+						      <p class="form-control-static">{$vo.email|def='未设置'}</p>
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-sm-2 control-label">注册</label>
+						    <div class="col-sm-10">
+						      <p class="form-control-static">{:date('Y-m-d',$vo['ctime'])}</p>
+						    </div>
+						  </div>				        
+						</div>
+	
+					</div>
+				</div>
+				</div><!-- /row -->	
+		</div>    
+	</div><!--/row-->  	
+</div>	
+{include 'public/footer.html'}	
+</body>
+</html>

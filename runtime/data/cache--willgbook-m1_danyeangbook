@@ -1,0 +1,15 @@
+<?php
+return array (
+  'contents' => 
+  array (
+    'id' => '2',
+    'pageid' => 'angbook',
+    'pname' => '留言公告',
+    'ptitle' => '公告',
+    'content' => '公告',
+    'thumb' => '',
+    'uptime' => '1645439308',
+  ),
+  'expire' => 0,
+  'mtime' => 1645439638,
+);
